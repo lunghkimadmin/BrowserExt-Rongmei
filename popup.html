@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+body{font-family:Arial,sans-serif;padding:12px;line-height:1.4;width:360px;margin:0}
+h2{margin:0 0 8px;color:#2c3e50;font-size:18px}
+.search-box,.feed-box{display:flex;gap:5px;margin-bottom:10px}
+.feed-box{flex-direction:column;background:#fdf6e2;padding:8px;border-radius:6px;border:1px solid #f5e7c1}
+input,textarea{padding:6px;border:1px solid #ccc;border-radius:4px;font-size:13px}
+textarea{resize:vertical;height:40px}
+button{padding:6px 12px;background:#1a73e8;color:white;border:none;border-radius:4px;cursor:pointer}
+.save-btn{background:#e67e22}
+.secondary{background:#666}
+#setup{background:#f4f8fc;padding:10px;border:1px solid #dbe7f3;border-radius:6px;margin-bottom:10px}
+#dbStatus{font-size:12px;margin-top:7px;color:#444}
+#meaning{margin-top:8px;min-height:60px;border:1px solid #eee;padding:8px;border-radius:6px;background:#fafafa;max-height:260px;overflow-y:auto}
+.entry{margin-bottom:8px}.word{font-weight:bold;color:#1a73e8}
+footer{margin-top:12px;font-size:11px;color:#666;border-top:1px solid #eee;padding-top:8px}
+.hidden{display:none!important}
+</style>
+</head><body>
+<h2>Rongmei Dictionary</h2>
+
+<div id="setup">
+  <strong>Local Database</strong>
+  <div style="font-size:12px;margin:5px 0">Choose the folder containing your plain-text JSON dictionary files. The extension will ask how many JSON files to load.</div>
+  <div style="display:flex;gap:5px;align-items:center">
+    <label style="font-size:12px">JSON files:</label>
+    <input id="jsonCount" type="number" min="1" step="1" value="2" style="width:65px">
+    <button id="chooseDbBtn">Choose Database Folder</button>
+  </div>
+  <button id="changeDbBtn" class="secondary hidden" style="margin-top:7px">Change Database</button>
+  <div id="dbStatus">No database folder selected.</div>
+</div>
+
+<div class="search-box"><input type="text" id="manualInput" placeholder="Type a word or sentence..."><button id="searchBtn">Go</button></div>
+<div id="meaning">Select database files above, then search.</div>
+
+<div class="feed-box"><strong style="font-size:12px;color:#b76e00;">Feed Custom Training Data:</strong>
+<input type="text" id="customEnglish" placeholder="English word or phrase...">
+<textarea id="customRongmei" placeholder="Correct Rongmei translation..."></textarea>
+<button id="saveFeedBtn" class="save-btn">Save to Custom DB</button>
+<div style="font-size:11px;color:#765;">Saved as plain text: <b>custom-training.txt</b> in the selected database folder.</div>
+</div>
+
+<footer>© 2026 Lunghkim Gangmei<br><br>The database used in this work was provided by Mr. Gaikhuanlung Gangmei. Full credit and sincere appreciation go to him for his valuable contribution.</footer>
+<script src="popup.js"></script></body></html>

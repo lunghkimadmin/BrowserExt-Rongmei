@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Rongmei Dictionary",
+  "version": "1.5.0",
+  "description": "Local Rongmei dictionary using plain JSON files selected from a local database folder.",
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "popup.html"
+  },
+  "action": {
+    "default_title": "Open Rongmei Dictionary Panel"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "commands": {
+    "open_side_panel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "MacCtrl+Shift+Y"
+      },
+      "description": "Open the Rongmei Dictionary side panel"
+    }
+  }
+}
